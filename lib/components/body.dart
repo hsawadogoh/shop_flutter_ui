@@ -1,7 +1,11 @@
+import 'package:e_commerce_flutter_ui/components/routes.dart';
 import 'package:e_commerce_flutter_ui/components/splash_content.dart';
 import 'package:e_commerce_flutter_ui/constants.dart';
+import 'package:e_commerce_flutter_ui/screens/sign_in/sign_in.dart';
 import 'package:e_commerce_flutter_ui/size_config.dart';
 import 'package:flutter/material.dart';
+
+import 'default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -53,15 +57,29 @@ class _Body extends State<Body> {
               ),
               Expanded(
                   flex: 2,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                            splashs.length,
-                                (index) => buildDot(index: index)),
-                      )
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)
+                    ),
+                    child: Column(
+                      children: [
+                        Spacer(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                              splashs.length,
+                                  (index) => buildDot(index: index)),
+                        ),
+                        Spacer(flex: 3,),
+                        DefaultButton(
+                          text: 'Continuer',
+                          press: () {
+                            Navigator.pushNamed(context, SignInScreen.routeName);
+                          },
+                        ),
+                        Spacer()
+                      ],
+                    ),
                   )
               )
             ],

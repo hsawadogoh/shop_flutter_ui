@@ -1,6 +1,9 @@
+import 'package:e_commerce_flutter_ui/components/routes.dart';
 import 'package:e_commerce_flutter_ui/constants.dart';
 import 'package:e_commerce_flutter_ui/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'components/theme_data.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,16 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ecommerce Flutter UI',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor)
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: SplashScreen(),
+      theme: theme(),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }
