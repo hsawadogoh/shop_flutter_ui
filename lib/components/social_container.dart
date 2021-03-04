@@ -19,8 +19,8 @@ class SocialContainer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(getProportionateScreenWidth(12)),
         margin: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
-        height: getProportionateScreenWidth(40),
-        width: getProportionateScreenHeight(40),
+        height: getProportionateScreenWidth(50),
+        width: getProportionateScreenHeight(50),
         decoration: BoxDecoration(
             color: Color(0xFFF5F6F9),
             shape: BoxShape.circle

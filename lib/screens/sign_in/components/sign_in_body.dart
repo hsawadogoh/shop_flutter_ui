@@ -1,9 +1,8 @@
+import 'package:e_commerce_flutter_ui/components/dont_have_account.dart';
 import 'package:e_commerce_flutter_ui/components/social_container.dart';
-import 'package:e_commerce_flutter_ui/constants.dart';
 import 'package:e_commerce_flutter_ui/screens/sign_in/components/signin_form.dart';
 import 'package:e_commerce_flutter_ui/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SignInBody extends StatelessWidget {
   @override
@@ -50,24 +49,7 @@ class SignInBody extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: getProportionateScreenHeight(20),),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Dont  have account ?',
-                        style: TextStyle(
-                            fontSize: getProportionateScreenWidth(16)
-                        ),
-                      ),
-                      Text(
-                        'Sign up',
-                        style: TextStyle(
-                            fontSize: getProportionateScreenWidth(16),
-                            color: kPrimaryColor
-                        ),
-                      )
-                    ],
-                  )
+                  DontHaveAccount()
                 ],
               ),
             ),

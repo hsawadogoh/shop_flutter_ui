@@ -1,6 +1,9 @@
 import 'package:e_commerce_flutter_ui/components/custom_suffix_icon.dart';
+import 'package:e_commerce_flutter_ui/components/custom_text_form_field.dart';
 import 'package:e_commerce_flutter_ui/components/default_button.dart';
 import 'package:e_commerce_flutter_ui/components/form_error.dart';
+import 'package:e_commerce_flutter_ui/components/routes.dart';
+import 'package:e_commerce_flutter_ui/screens/forgot_password/forgot_password.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -102,10 +105,15 @@ class _SignFormState extends State<SignForm> {
                   'Remember Me'
               ),
               Spacer(),
-              Text(
-                'Forgot password',
-                style: TextStyle(
-                    decoration: TextDecoration.underline
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, ForgotPassword.routeName);
+                },
+                child: Text(
+                  'Forgot password',
+                  style: TextStyle(
+                      decoration: TextDecoration.underline
+                  ),
                 ),
               )
             ],
@@ -121,43 +129,6 @@ class _SignFormState extends State<SignForm> {
             },
           )
         ],
-      ),
-    );
-  }
-}
-
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    Key key,
-    @required this.hintText,
-    @required this.labelText,
-    @required this.changed,
-    @required this.validate,
-    @required this.suffixIcon, this.obscureText = false,@required this.saved,
-  }) : super(key: key);
-  final String hintText;
-  final String labelText;
-  final Function changed;
-  final Function validate;
-  final Function saved;
-  final String suffixIcon;
-  final bool obscureText;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: changed,
-      validator: validate,
-      obscureText: obscureText,
-      onSaved: saved,
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSuffixIcon(
-            suffixIcon: suffixIcon,
-          )
       ),
     );
   }
