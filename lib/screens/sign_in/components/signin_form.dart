@@ -4,6 +4,7 @@ import 'package:e_commerce_flutter_ui/components/default_button.dart';
 import 'package:e_commerce_flutter_ui/components/form_error.dart';
 import 'package:e_commerce_flutter_ui/components/routes.dart';
 import 'package:e_commerce_flutter_ui/screens/forgot_password/forgot_password.dart';
+import 'package:e_commerce_flutter_ui/screens/login_success/login_success_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -49,11 +50,13 @@ class _SignFormState extends State<SignForm> {
                 setState(() {
                   errors.add(kEmailNullError);
                 });
+                return "";
               } else if (!emailValidatorRegExp.hasMatch(value)
                   && !errors.contains(kInvalidEmailError)) {
                 setState(() {
                   errors.add(kInvalidEmailError);
                 });
+                return "";
               }
               return null;
             },
@@ -81,10 +84,12 @@ class _SignFormState extends State<SignForm> {
                 setState(() {
                   errors.add(kPassNullError);
                 });
+                return "";
               } else if (value.length < 4 && !errors.contains(kShortPassError)) {
                 setState(() {
                   errors.add(kShortPassError);
                 });
+                return "";
               }
               return null;
             },
@@ -125,6 +130,7 @@ class _SignFormState extends State<SignForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           )
